@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Page moved — Wallust</title></head>
+<body><main><h1>Looking for a project?</h1><p id="message">Visit <a href="https://jpxor.github.io/">the project index</a> or <a href="https://www.wallust.com/">Wallust</a>.</p></main>
+<script>
+  const projects = new Set(['secrets', 'worklog', 'parrot', 'Photoloom']);
+  const project = location.pathname.split('/')[1];
+  if (projects.has(project)) {
+    const target = new URL('https://jpxor.github.io/');
+    target.pathname = location.pathname;
+    target.search = location.search;
+    target.hash = location.hash;
+    const link = document.createElement('a');
+    link.href = target.href;
+    link.textContent = 'Continue to the new project address';
+    document.getElementById('message').replaceChildren(link);
+    location.replace(target.href);
+  }
+</script></body></html>
